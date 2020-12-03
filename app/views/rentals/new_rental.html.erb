@@ -1,0 +1,38 @@
+
+<div>
+  <div>
+    <h2>
+      Add a new rental
+    </h2>
+
+<%= @gear.name %>
+
+    <form action="/insert_rental" method="post">
+      <div>
+
+
+        <input type="hidden" name="query_gear_id" value=<%= @gear.id%>>
+      </div>
+
+      <div>
+        <label for="check_out_date_box">
+          Check out date
+        </label>
+
+        <input type="date" id="check_out_date_box" name="query_check_out_date">
+      </div>
+
+      <div>
+        <label for="return_date_box">
+          Return date
+        </label>
+
+        <input type="date" id="return_date_box" name="query_return_date">
+      </div>
+
+      <button>
+        Create rental
+      </button>
+    </form>
+  </div>
+</div>

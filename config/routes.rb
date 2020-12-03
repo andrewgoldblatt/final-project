@@ -10,9 +10,14 @@ get("/", { :controller => "gears", :action => "index" })
           
   # READ
   get("/rentals", { :controller => "rentals", :action => "index" })
+
+  get("/rentals/my_rentals", { :controller => "rentals", :action => "my_rentals" })
   
   get("/rentals/:path_id", { :controller => "rentals", :action => "show" })
+
+  get("/rentals/new_rental/:gear_id", { :controller => "rentals", :action => "new_rental" })
   
+
   # UPDATE
   
   post("/modify_rental/:path_id", { :controller => "rentals", :action => "update" })

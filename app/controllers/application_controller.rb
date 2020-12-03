@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action(:load_current_club_member)
   
   # Uncomment this if you want to force club_members to sign in before any other actions
-  # before_action(:force_club_member_sign_in)
+  before_action(:force_club_member_sign_in)
   
   def load_current_club_member
     the_id = session[:club_member_id]
