@@ -1,0 +1,141 @@
+<div>
+  <div>
+    <h1>
+      List of all gear
+    </h1>
+  </div>
+</div>
+
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Photo
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Condition
+        </th>
+
+        <th>
+          Size
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_gears.each do |a_gear| %>
+      <tr>
+        <td>
+          <%= a_gear.id %>
+        </td>
+
+        <td>
+          <img src="<%= a_gear.photo %>">
+        </td>
+
+        <td>
+          <%= a_gear.name %>
+        </td>
+
+        <td>
+          <%= a_gear.condition %>
+        </td>
+
+        <td>
+          <%= a_gear.size %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_gear.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_gear.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/gears/<%= a_gear.id %>">
+            Show details
+          </a>
+        </td>
+
+        <td>
+          <a href="/gears/<%= a_gear.id %>">
+            Rent Item 
+          </a>
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Add a new gear
+    </h2>
+
+    <form action="/insert_gear" method="post">
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="condition_box">
+          Condition
+        </label>
+
+        <input type="text" id="condition_box" name="query_condition">
+      </div>
+
+      <div>
+        <label for="size_box">
+          Size
+        </label>
+
+        <input type="text" id="size_box" name="query_size">
+      </div>
+
+      <button>
+        Create gear
+      </button>
+    </form>
+  </div>
+</div>

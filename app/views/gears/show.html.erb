@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Gear #<%= @the_gear.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/gears">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_gear/<%= @the_gear.id %>">
+          Delete gear
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Photo
+      </dt>
+      <dd>
+        <%= @the_gear.photo %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_gear.name %>
+      </dd>
+
+      <dt>
+        Condition
+      </dt>
+      <dd>
+        <%= @the_gear.condition %>
+      </dd>
+
+      <dt>
+        Size
+      </dt>
+      <dd>
+        <%= @the_gear.size %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_gear.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_gear.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit gear
+    </h2>
+
+    <form action="/modify_gear/<%= @the_gear.id %>"  method="post" >
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo" value="<%= @the_gear.photo %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_gear.name %>">
+      </div>
+
+      <div>
+        <label for="condition_box">
+          Condition
+        </label>
+
+        <input type="text" id="condition_box" name="query_condition" value="<%= @the_gear.condition %>">
+      </div>
+
+      <div>
+        <label for="size_box">
+          Size
+        </label>
+
+        <input type="text" id="size_box" name="query_size" value="<%= @the_gear.size %>">
+      </div>
+
+      <button>
+        Update gear
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

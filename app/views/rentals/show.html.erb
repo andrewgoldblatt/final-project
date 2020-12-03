@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Rental #<%= @the_rental.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/rentals">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_rental/<%= @the_rental.id %>">
+          Delete rental
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Gear
+      </dt>
+      <dd>
+        <%= @the_rental.gear_id %>
+      </dd>
+
+      <dt>
+        Check out date
+      </dt>
+      <dd>
+        <%= @the_rental.check_out_date %>
+      </dd>
+
+      <dt>
+        Return date
+      </dt>
+      <dd>
+        <%= @the_rental.return_date %>
+      </dd>
+
+      <dt>
+        Member
+      </dt>
+      <dd>
+        <%= @the_rental.member_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_rental.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_rental.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit rental
+    </h2>
+
+    <form action="/modify_rental/<%= @the_rental.id %>"  method="post" >
+      <div>
+        <label for="gear_id_box">
+          Gear
+        </label>
+
+        <input type="text" id="gear_id_box" name="query_gear_id" value="<%= @the_rental.gear_id %>">
+      </div>
+
+      <div>
+        <label for="check_out_date_box">
+          Check out date
+        </label>
+
+        <input type="date" id="check_out_date_box" name="query_check_out_date" value="<%= @the_rental.check_out_date %>">
+      </div>
+
+      <div>
+        <label for="return_date_box">
+          Return date
+        </label>
+
+        <input type="date" id="return_date_box" name="query_return_date" value="<%= @the_rental.return_date %>">
+      </div>
+
+      <div>
+        <label for="member_id_box">
+          Member
+        </label>
+
+        <input type="text" id="member_id_box" name="query_member_id" value="<%= @the_rental.member_id %>">
+      </div>
+
+      <button>
+        Update rental
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
