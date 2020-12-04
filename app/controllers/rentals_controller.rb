@@ -46,6 +46,17 @@ class RentalsController < ApplicationController
     if the_rental.valid?
       the_rental.save
       redirect_to("/rentals/my_rentals", { :notice => "Rental created successfully." })
+      
+      twilio_sid = ENV.fetch("TWILIO_ACCOUNT_SID")
+      twilio_token = ENV.fetch("TWILIO_AUTH_TOKEN")
+      twilio_sending_number = ENV.fetch("TWILIO_SENDING_PHONE_NUMBER")  
+      twilio_client = Twilio::REST::Client.new(twilio_sid, twilio_token)
+      sms_parameters = {
+      :from => twilio_sending_number,
+      :to => "+19876543210", # Put your own phone number here if you want to see it in action
+      :body => "It's going to rain today — take an umbrella!"}
+      twilio_client.api.account.messages.create(sms_parameters)
+  
     else
       redirect_to("/rentals", { :notice => "Rental failed to create successfully." })
     end
