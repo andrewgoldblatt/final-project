@@ -17,7 +17,7 @@
 
   <body>
      <ul>
-      <% if @current_user == nil %>
+      <% if @current_club_member == nil %>
       
         <li>
           <a href="/club_member_sign_in">
@@ -30,15 +30,18 @@
             Sign up
           </a>
         </li>
+
+        <%= @current_club_member.inspect %>
+
       <% else %>
         <li>
-          <a href="/edit_user_profile">
-            Edit <%= @current_user.first_name %>
+          <a href="/modify_club_member">
+            Edit <%= @current_club_member.first_name %>
           </a>
         </li>
         
         <li>
-          <a href="/user_sign_out">
+          <a href="/club_member_sign_out">
             Sign out
           </a>
         </li>
