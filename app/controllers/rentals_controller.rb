@@ -53,8 +53,11 @@ class RentalsController < ApplicationController
       twilio_client = Twilio::REST::Client.new(twilio_sid, twilio_token)
       sms_parameters = {
       :from => twilio_sending_number,
-      :to => "+19876543210", # Put your own phone number here if you want to see it in action
-      :body => "It's going to rain today — take an umbrella!"}
+      :to => "+13038886814", # Put your own phone number here if you want to see it in action
+      :body => @current_club_member.first_name + " " + @current_club_member.last_name + " made a new reservation for " + 
+      the_rental.gear.name + ". Check out date is " + the_rental.check_out_date.to_s + ", the return date is " +
+     the_rental.return_date.to_s + ""}
+      
       twilio_client.api.account.messages.create(sms_parameters)
   
     else
