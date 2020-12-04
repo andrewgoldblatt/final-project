@@ -45,7 +45,7 @@ class RentalsController < ApplicationController
 
     if the_rental.valid?
       the_rental.save
-      redirect_to("/rentals", { :notice => "Rental created successfully." })
+      redirect_to("/rentals/my_rentals", { :notice => "Rental created successfully." })
     else
       redirect_to("/rentals", { :notice => "Rental failed to create successfully." })
     end
@@ -74,6 +74,6 @@ class RentalsController < ApplicationController
 
     the_rental.destroy
 
-    redirect_to("/rentals", { :notice => "Rental deleted successfully."} )
+    redirect_to("/rentals/my_rentals", { :notice => "Rental deleted successfully."} )
   end
 end
