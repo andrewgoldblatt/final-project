@@ -14,63 +14,111 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   <h1> UChicago Outdoor Adventure Club Gear Portal </h1>
   <style>
-.button { color: teal; border: 1px teal solid; padding: 5px 15px; border-radius: 5px: text-decoration: none
+.button { color: teal; 
+          border: 1px teal solid; 
+          padding: 5px 15px; 
+          border-radius: 5px; 
+          text-decoration: none;
+          width: 25%%;
+          margin-right: 8px;
+          margin-left: 8px;
 }
 
+.row {
+  display: flex;
+  justify-content: center;
+  
+}
+
+body {
+  font-family: font-family: 'Arimo', sans-serif;
+
+}
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+
+/* mouse over link */
+a.over:hover {
+  color: #5F9EA0;
+}
+
+/* selected link */
+a.select:active {
+  color: #5F9EA0;
+  fill: color
+}
   </style>
+
+  
   </head>
 
+
   <body>
+   <% if @current_club_member == nil %>
+   <% else %>
    <p> Welcome <%= @current_club_member.first_name %> </p>
+  <% end %>
 
-
-     <ul>
+  
       <% if @current_club_member == nil %>
       
-        <li>
-          <a href="/club_member_sign_in" style="border: 1px blue solid; padding: 2px 4px">
+        <div class="row">
+        <div>
+          <a href="/club_member_sign_in" class="button" class="active" class="hover">
             Sign in
           </a>
-        </li>
+          </div>
         
-        <li>
-          <a href="/club_member_sign_up">
+        
+    
+        <div>
+          <a href="/club_member_sign_up" class="button" class="active" class="hover">
             Sign up
           </a>
-        </li>
+          </div>
+        </div>
 
       <% else %>
      
 
-        <li>
-          <a href="/edit_club_member_profile" class="button">
+        <div class="row">
+          <div>
+          <a href="/edit_club_member_profile" class="button" class="active" class="hover">
             Edit profile 
           </a>
-        </li>
+          </div>
         
-        <li>
-          <a href="/club_member_sign_out" class="button">
+        
+        
+          <div>
+          <a href="/club_member_sign_out" class="button" class="active" class="hover">
             Sign out
           </a>
-        </li>
+          </div>
+        
 
+         <div>
+        <a href="/rentals/my_rentals" class="button" class="select" class="over">
+          My reservations 
+        </a>
+        </div>
+      
+
+     
+        <div>
+        <a href="/gears" class="button" class="active" >
+          Gear list/make a new reservation  
+        </a>
+        </div>
+      </div>
+
+    
 
       <% end %>
 
 
-      <li>
-        <a href="/rentals/my_rentals" class="button">
-          My reservations 
-        </a>
-      </li>
-
-      <li>
-        <a href="/gears" class="button">
-          Gear list/make a new reservation  
-        </a>
-      </li>
-
-    </ul>
+     
 
     <p style="color: green">
       <%= notice %>
