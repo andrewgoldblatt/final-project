@@ -30,6 +30,12 @@
         <input id="rentals_count_box" name="query_rentals_count" value="<%= @current_club_member.rentals_count %>">
       </div>
 
+    <div>
+      <label for="admin_code">Admin Code (Enter the admin code if you are a Gear Manager, otherwise leave blank)</label>
+      <input id="admin_code" name="admin_code" placeholder="Gear Manager ID">
+    </div>
+
+
       <div>
         <label for="password_box">Password</label>
         <input id="password_box" name="query_password" placeholder="Choose a password..." type="password">
@@ -39,6 +45,8 @@
         <label for="password_confirmation_box">Password Confirmation</label>
         <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
       </div>
+
+
 
       <button>
         Update account

@@ -8,6 +8,7 @@ class CreateClubMembers < ActiveRecord::Migration[6.0]
       t.string :year
       t.integer :phone_number
       t.integer :rentals_count
+      t.integer :admin_code
 
       t.timestamps
     end

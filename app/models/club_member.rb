@@ -12,7 +12,8 @@
 #  year            :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#
+#  admin_code      :integer 
+
 class ClubMember < ApplicationRecord
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true

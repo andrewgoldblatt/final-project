@@ -31,11 +31,14 @@
           </a>
         </li>
 
-        <%= @current_club_member.inspect %>
-
       <% else %>
         <li>
-          <a href="/modify_club_member">
+            Welcome <%= @current_club_member.first_name %>
+        </li>
+
+
+        <li>
+          <a href="/edit_club_member_profile">
             Edit <%= @current_club_member.first_name %>
           </a>
         </li>

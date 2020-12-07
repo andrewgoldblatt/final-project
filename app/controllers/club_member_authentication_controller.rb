@@ -45,7 +45,7 @@ class ClubMemberAuthenticationController < ApplicationController
     @club_member.last_name = params.fetch("query_last_name")
     @club_member.year = params.fetch("query_year")
     @club_member.phone_number = params.fetch("query_phone_number")
-    @club_member.rentals_count = params.fetch("query_rentals_count")
+    #@club_member.admin = params.fetch("admin_code")
 
     save_status = @club_member.save
 
@@ -71,7 +71,7 @@ class ClubMemberAuthenticationController < ApplicationController
     @club_member.last_name = params.fetch("query_last_name")
     @club_member.year = params.fetch("query_year")
     @club_member.phone_number = params.fetch("query_phone_number")
-    @club_member.rentals_count = params.fetch("query_rentals_count")
+    #@club_member.admin_code = params.fetch("admin_code")
     
     if @club_member.valid?
       @club_member.save

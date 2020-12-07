@@ -41,6 +41,7 @@ class RentalsController < ApplicationController
     the_rental.gear_id = params.fetch("query_gear_id")
     the_rental.check_out_date = params.fetch("query_check_out_date")
     the_rental.return_date = params.fetch("query_return_date")
+    the_rental.checkout_note = params.fetch("query_checkout_note")
     the_rental.member_id = @current_club_member.id
 
     if the_rental.valid?
@@ -56,7 +57,7 @@ class RentalsController < ApplicationController
       :to => "+13038886814", # Put your own phone number here if you want to see it in action
       :body => @current_club_member.first_name + " " + @current_club_member.last_name + " made a new reservation for " + 
       the_rental.gear.name + ". Check out date is " + the_rental.check_out_date.to_s + ", the return date is " +
-     the_rental.return_date.to_s + ""}
+     the_rental.return_date.to_s + "with the note " + the_rental.checkout_note }
       
       twilio_client.api.account.messages.create(sms_parameters)
   
@@ -73,6 +74,7 @@ class RentalsController < ApplicationController
     the_rental.check_out_date = params.fetch("query_check_out_date")
     the_rental.return_date = params.fetch("query_return_date")
     the_rental.member_id = params.fetch("query_member_id")
+    the_rental.checkout_note = params.fetch("query_checkout_note")
 
     if the_rental.valid?
       the_rental.save
