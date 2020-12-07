@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FinalProject</title>
+    <title>UChicago Outdoor Adventure Club Gear Portal</title>
     <%= csrf_meta_tags %>
 
     <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
@@ -12,7 +12,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
-  <h1> UChicago Outdoor Adventure Club Gear Portal </h1>
+  <h1 class="center"> UChicago Outdoor Adventure Club Gear Portal </h1>
   <style>
 .button { color: teal; 
           border: 1px teal solid; 
@@ -24,6 +24,16 @@
           margin-left: 8px;
 }
 
+.adminbutton { color: black; 
+          border: 1px black solid;
+          background: #CD5C5C; 
+          padding: 5px 15px; 
+          border-radius: 5px; 
+          text-decoration: none;
+          width: 25%%;
+          margin-right: 8px;
+          margin-left: 8px;
+}
 .row {
   display: flex;
   justify-content: center;
@@ -34,6 +44,12 @@ body {
   font-family: font-family: 'Arimo', sans-serif;
 
 }
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
@@ -57,9 +73,18 @@ a.select:active {
 
 
   <body>
+  
    <% if @current_club_member == nil %>
    <% else %>
-   <p> Welcome <%= @current_club_member.first_name %> </p>
+   <p class="center"> Welcome <%= @current_club_member.first_name %>
+   <% if @current_club_member.admin_code == 60637 %>
+   <a class="adminbutton">  Admin </a> 
+   <a href="/rentals" class="button" >
+            View all rentals
+          </a>
+   <%end%>
+   
+    </p>
   <% end %>
 
   

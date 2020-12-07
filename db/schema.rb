@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_184808) do
     t.string "year"
     t.integer "phone_number"
     t.integer "rentals_count"
+    t.integer "admin_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_184808) do
     t.date "check_out_date"
     t.date "return_date"
     t.integer "member_id"
+    t.string "checkout_note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -5,7 +5,7 @@ class CreateRentals < ActiveRecord::Migration[6.0]
       t.date :check_out_date
       t.date :return_date
       t.integer :member_id
-      t.string :chekout_note
+      t.string :checkout_note
 
       t.timestamps
     end

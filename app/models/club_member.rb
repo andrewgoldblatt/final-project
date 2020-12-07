@@ -3,6 +3,7 @@
 # Table name: club_members
 #
 #  id              :integer          not null, primary key
+#  admin_code      :integer
 #  email           :string
 #  first_name      :string
 #  last_name       :string

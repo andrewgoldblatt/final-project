@@ -1,3 +1,4 @@
+
 <div>
   <div>
     <h1>
@@ -71,12 +72,7 @@
         <td>
           <%= time_ago_in_words(a_rental.updated_at) %> ago
         </td>
-
-        <td>
-          <a href="/rentals/<%= a_rental.id %>">
-            Show details
-          </a>
-        </td>
+   
 
         <td>
           <a href="/delete_rental/<%= a_rental.id %>">

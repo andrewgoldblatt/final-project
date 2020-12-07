@@ -4,6 +4,7 @@
 #
 #  id             :integer          not null, primary key
 #  check_out_date :date
+#  checkout_note  :string
 #  return_date    :date
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null

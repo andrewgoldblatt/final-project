@@ -33,6 +33,9 @@ div {text-align: center;}
 </head>
 
 <body>
+
+
+ <% if @current_club_member.admin_code == 60637 %>
 <div>
   <div>
     <h1>
@@ -94,12 +97,25 @@ div {text-align: center;}
   <div>
     <table >
       <tr>
-        <th>
-          ID
+      <th>
+          Club member id 
         </th>
+      <th>
+          Member Name
+        </th>
+         <th>
+          Phone Number
+        </th>
+        <th>
+          Email
+        </th>
+
 
         <th>
           Gear
+        </th>
+         <th>
+          Gear id 
         </th>
 
         <th>
@@ -111,9 +127,10 @@ div {text-align: center;}
         </th>
 
         <th>
-          Member
+          Checkout note
         </th>
 
+      
         <th>
           Created at
         </th>
@@ -129,36 +146,46 @@ div {text-align: center;}
       <% @list_of_rentals.each do |a_rental| %>
       <tr>
         <td>
-          <%= a_rental.id %>
+          <%= @current_club_member.id %>
+        </td>
+        <td>
+          <%= @current_club_member.first_name %> <%= @current_club_member.last_name %> 
+        </td>
+        
+        <td>
+          <%= @current_club_member.phone_number %> 
+        </td>
+        <td>
+          <%= @current_club_member.email %> 
+        </td>
+
+
+
+        <td>
+          <%= @a_rental.name %>
+        </td>
+         <td>
+          <%= @a_rental.id %>
         </td>
 
         <td>
-          <%= a_rental.gear_id %>
+          <%= @a_rental.check_out_date %>
         </td>
 
         <td>
-          <%= a_rental.check_out_date %>
+          <%= @a_rental.return_date %>
         </td>
 
         <td>
-          <%= a_rental.return_date %>
+          <%= @a_rental.checkout_note %>
         </td>
 
+        
         <td>
-          <%= a_rental.member_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_rental.created_at) %> ago
+          <%= time_ago_in_words(@a_rental.created_at) %> ago
         </td>
         <td>
-          <%= time_ago_in_words(a_rental.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/rentals/<%= a_rental.id %>">
-            Show details
-          </a>
+          <%= time_ago_in_words(@a_rental.updated_at) %> ago
         </td>
         
         <td>
@@ -171,6 +198,8 @@ div {text-align: center;}
     </table>
   </div>
 </div>
+<%else%>
+<%end%>
 
 <hr>
 </body>
