@@ -9,7 +9,7 @@
 #  updated_at     :datetime         not null
 #  gear_id        :integer
 #  member_id      :integer
-#  checkout_note  :string 
+#
 
 class Rental < ApplicationRecord
   belongs_to(:gear, { :required => false, :class_name => "Gear", :foreign_key => "gear_id" })

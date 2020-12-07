@@ -2,6 +2,34 @@
 <html>
 <head>
 <style>
+td, th {
+ border:2px solid #778899;
+ border-right:none;
+ border-bottom:none;
+}
+
+td:nth-last-child(1) {
+ border-right:2px solid #778899;
+}
+
+th:nth-last-child(1) {
+ border-right:2px solid #778899;
+}
+
+table {
+ border-bottom:2px solid #778899;
+}
+
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 
 </style>
 </head>
@@ -10,9 +38,9 @@
 
 <div>
   <div>
-    <h1>
+    <h2>
       List of all gear
-    </h1>
+    </h2>
   </div>
 </div>
 
@@ -20,18 +48,16 @@
 <hr>
 <div>
   <div>
-    <table border="1"> 
+    <table class="center" cellspacing="0" > 
       <tr>
-        <th>
-          ID
+        
+
+       <th >
+          Gear photo
         </th>
 
         <th>
-          Photo
-        </th>
-
-        <th>
-          Name
+          Item name and brand
         </th>
 
         <th>
@@ -42,34 +68,31 @@
           Size
         </th>
 
+
         <th>
-          Created at
+          Last updated 
         </th>
 
         <th>
-          Updated at
+          Show details
         </th>
-
         <th>
           Rent item
         </th>
 
-        <th>
-        </th>
+        
       </tr>
 
       <% @list_of_gears.each do |a_gear| %>
       <tr>
+
+
         <td>
-          <%= a_gear.id %>
+          <img src="<%= a_gear.photo %>" style="max-height:350px;height:100%">
         </td>
 
         <td>
-          <img src="<%= a_gear.photo %>" style="max-width:350px;width:100%">
-        </td>
-
-        <td>
-          <%= a_gear.name %>
+          <%= a_gear.name %>  
         </td>
 
         <td>
@@ -80,9 +103,6 @@
           <%= a_gear.size %>
         </td>
 
-        <td>
-          <%= time_ago_in_words(a_gear.created_at) %> ago
-        </td>
         <td>
           <%= time_ago_in_words(a_gear.updated_at) %> ago
         </td>
