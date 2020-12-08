@@ -145,10 +145,12 @@ div {text-align: center;}
 
       <% @list_of_rentals.each do |a_rental| %>
       <tr>
+     
         <td>
-          <%= @current_club_member.id %>
+          <%= @current_club_member.id %>  
         </td>
         <td>
+          <% a_rental.member.first_name %> 
           <%= @current_club_member.first_name %> <%= @current_club_member.last_name %> 
         </td>
         

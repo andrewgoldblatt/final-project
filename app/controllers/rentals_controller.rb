@@ -59,7 +59,7 @@ admins.each do |admin|
       sms_parameters = {
       :from => twilio_sending_number,
       :to => admin.phone_number , # Put your own phone number here if you want to see it in action
-      :body => admin.first_name + " " + admin.last_name + " made a new reservation for " + 
+      :body => @current_club_member.first_name + " " + @current_club_member.last_name + " made a new reservation for " + 
       the_rental.gear.name + ". Check out date is " + the_rental.check_out_date.to_s + ", the return date is " +
      the_rental.return_date.to_s + " with the note " + the_rental.checkout_note }
       
