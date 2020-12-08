@@ -198,40 +198,27 @@ div {text-align: center;}
 </div>
 </hr>
 
-
-<table>
-  <tr>
-    <th>
-    Club member
-   </th>
-  </tr>
-  
-    <% ClubMember.all.each do |member|%>
-  <tr>
-    <%= member.first_name %> <%= member.last_name %>
-  </tr>
-  <tr>
-    <%= member.phone_number %> 
-  </tr>
-  <%end%>
-</table>
+<h1>
+List of all members
+</h1>
 
 <table style="width:100%">
   <tr>
     <th>Club Member</th>
-    <th>Lastname</th>
-    <th>Age</th>
+    <th>Year</th>
+    <th>Phone number</th>
+    <th>email</th>
+    <th>admin code</th>
   </tr>
+<% ClubMember.all.each do |member|%>
   <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
+    <td><%= member.first_name %> <%= member.last_name %></td>
+    <td><%= member.year %> </td>
+    <td><%= member.phone_number %> </td>
+    <td><%= member.email %> </td>
+    <td><%= member.admin_code %> </td>
   </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
+  <%end%>
 </table>
 
 
