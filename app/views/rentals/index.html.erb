@@ -159,33 +159,31 @@ div {text-align: center;}
           <%= @current_club_member.email %> 
         </td>
 
-
-
         <td>
-          <%= @a_rental.name %>
+          <%= a_rental.gear.name %>
         </td>
          <td>
-          <%= @a_rental.id %>
+          <%= a_rental.id %>
         </td>
 
         <td>
-          <%= @a_rental.check_out_date %>
+          <%= a_rental.check_out_date %>
         </td>
 
         <td>
-          <%= @a_rental.return_date %>
+          <%= a_rental.return_date %>
         </td>
 
         <td>
-          <%= @a_rental.checkout_note %>
+          <%= a_rental.checkout_note %>
         </td>
 
         
         <td>
-          <%= time_ago_in_words(@a_rental.created_at) %> ago
+          <%= time_ago_in_words(a_rental.created_at) %> ago
         </td>
         <td>
-          <%= time_ago_in_words(@a_rental.updated_at) %> ago
+          <%= time_ago_in_words(a_rental.updated_at) %> ago
         </td>
         
         <td>
@@ -198,8 +196,51 @@ div {text-align: center;}
     </table>
   </div>
 </div>
+</hr>
+
+
+<table>
+  <tr>
+    <th>
+    Club member
+   </th>
+  </tr>
+  
+    <% ClubMember.all.each do |member|%>
+  <tr>
+    <%= member.first_name %> <%= member.last_name %>
+  </tr>
+  <tr>
+    <%= member.phone_number %> 
+  </tr>
+  <%end%>
+</table>
+
+<table style="width:100%">
+  <tr>
+    <th>Club Member</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+
+
 <%else%>
 <%end%>
 
-<hr>
+
+
+
+
+
 </body>

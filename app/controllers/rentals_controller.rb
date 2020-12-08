@@ -48,19 +48,24 @@ class RentalsController < ApplicationController
       the_rental.save
       redirect_to("/rentals/my_rentals", { :notice => "Rental created successfully." })
       
+admins = ClubMember.where(:admin_code => 60637)
+admins.each do |admin| 
+
+
       twilio_sid = ENV.fetch("TWILIO_ACCOUNT_SID")
       twilio_token = ENV.fetch("TWILIO_AUTH_TOKEN")
       twilio_sending_number = ENV.fetch("TWILIO_SENDING_PHONE_NUMBER")  
       twilio_client = Twilio::REST::Client.new(twilio_sid, twilio_token)
       sms_parameters = {
       :from => twilio_sending_number,
-      :to => "+13038886814", # Put your own phone number here if you want to see it in action
-      :body => @current_club_member.first_name + " " + @current_club_member.last_name + " made a new reservation for " + 
+      :to => admin.phone_number , # Put your own phone number here if you want to see it in action
+      :body => admin.first_name + " " + admin.last_name + " made a new reservation for " + 
       the_rental.gear.name + ". Check out date is " + the_rental.check_out_date.to_s + ", the return date is " +
-     the_rental.return_date.to_s + "with the note " + the_rental.checkout_note }
+     the_rental.return_date.to_s + " with the note " + the_rental.checkout_note }
       
       twilio_client.api.account.messages.create(sms_parameters)
   
+end 
     else
       redirect_to("/rentals", { :notice => "Rental failed to create successfully." })
     end
